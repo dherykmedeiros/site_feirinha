@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, MapPin, Phone, Instagram, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, MapPin, Phone, CheckCircle2 } from "lucide-react";
 import { supabase, Box } from "@/lib/supabase";
 import styles from "./page.module.css";
 import InstagramIcon from "@/components/Icons/Instagram";
