@@ -4,7 +4,7 @@ import { useState } from "react";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import Instagram from "@/components/Icons/Instagram";
 import styles from "./page.module.css";
-// import { supabase } from "@/lib/supabase"; // será usado quando o BD estiver pronto
+import { supabase } from "@/lib/supabase";
 
 export default function Contato() {
   const [formData, setFormData] = useState({ nome: "", email: "", mensagem: "" });
@@ -14,11 +14,23 @@ export default function Contato() {
     e.preventDefault();
     setStatus("submitting");
     
-    // Simulação de envio para o Supabase
-    setTimeout(() => {
+    try {
+      const { error } = await supabase
+        .from('contatos')
+        .insert([{ 
+          nome: formData.nome, 
+          email: formData.email, 
+          mensagem: formData.mensagem 
+        }]);
+
+      if (error) throw error;
+      
       setStatus("success");
       setFormData({ nome: "", email: "", mensagem: "" });
-    }, 1500);
+    } catch (error) {
+      console.error("Erro ao enviar contato:", error);
+      setStatus("error");
+    }
   };
 
   return (
@@ -128,6 +140,12 @@ export default function Contato() {
               {status === "success" && (
                 <div className={styles.successMessage}>
                   Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.
+                </div>
+              )}
+              
+              {status === "error" && (
+                <div className={styles.errorMessage} style={{color: 'red', marginTop: '1rem', textAlign: 'center'}}>
+                  Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.
                 </div>
               )}
             </form>
