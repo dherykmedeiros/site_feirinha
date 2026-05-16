@@ -1,0 +1,187 @@
+.page {
+  padding: var(--space-2xl) 0 var(--space-3xl);
+  min-height: 80vh;
+}
+
+.container {
+  max-width: 1000px;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-bottom: var(--space-xl);
+  transition: color var(--transition-fast);
+}
+
+.backButton:hover {
+  color: var(--color-primary);
+}
+
+.detailsCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-premium);
+}
+
+@media (max-width: 768px) {
+  .detailsCard {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imageSection {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.categoryBadge {
+  position: absolute;
+  top: var(--space-lg);
+  left: var(--space-lg);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-primary-dark);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+  box-shadow: var(--shadow-md);
+}
+
+.infoSection {
+  padding: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.boxNumber {
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.boxName {
+  font-size: 2.2rem;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #166534;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  .statusBadge {
+    background-color: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+  }
+}
+
+.descriptionBlock {
+  margin-bottom: var(--space-2xl);
+}
+
+.descriptionBlock h3,
+.contactBlock h3 {
+  font-size: 1.2rem;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-md);
+}
+
+@media (prefers-color-scheme: dark) {
+  .descriptionBlock h3,
+  .contactBlock h3 {
+    color: var(--color-primary-light);
+  }
+}
+
+.description {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary-light);
+  color: white;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.contactLabel {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+
+.contactValue {
+  display: block;
+  font-size: 1rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.link:hover {
+  color: var(--color-primary-dark);
+}
