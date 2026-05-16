@@ -1,8 +1,18 @@
 import Link from 'next/link';
+import { supabase } from '@/lib/supabase';
 import styles from './Footer.module.css';
 
-export default function Footer() {
+export default async function Footer() {
   const currentYear = new Date().getFullYear();
+  
+  const { data: settingsData } = await supabase.from('site_settings').select('*');
+  const settings: Record<string, string> = {};
+  
+  if (settingsData) {
+    settingsData.forEach(item => {
+      settings[item.key] = item.value;
+    });
+  }
   
   return (
     <footer className={styles.footer}>
@@ -27,10 +37,9 @@ export default function Footer() {
           
           <div className={styles.contact}>
             <h4>Visite-nos</h4>
-            <p>Avenida Beira Mar, s/n - Meireles</p>
-            <p>Fortaleza - CE, Próximo ao nº 2800</p>
-            <p className={styles.hours}>Domingo à Domingo das 16h às 22h</p>
-            <p className={styles.phone}>(85) 98769-8445</p>
+            <p>{settings.contact_address}</p>
+            <p className={styles.hours}>{settings.contact_hours}</p>
+            <p className={styles.phone}>{settings.contact_phone}</p>
           </div>
         </div>
         
