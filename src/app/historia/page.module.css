@@ -1,0 +1,125 @@
+.page {
+  padding: var(--space-3xl) 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  padding: 0 var(--space-md);
+}
+
+.header .subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.timelineSection {
+  position: relative;
+  max-width: 800px;
+}
+
+.timeline {
+  position: relative;
+  padding: var(--space-md) 0;
+}
+
+/* The vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 24px;
+  width: 2px;
+  background-color: var(--color-primary-light);
+  border-radius: var(--radius-full);
+}
+
+@media (min-width: 768px) {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: var(--space-2xl);
+  display: flex;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .timelineItem {
+    justify-content: space-between;
+  }
+  
+  .timelineItem:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+}
+
+.timelineDot {
+  position: absolute;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 0 4px var(--color-background), var(--shadow-md);
+}
+
+@media (min-width: 768px) {
+  .timelineDot {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timelineContent {
+  margin-left: 70px;
+  padding: var(--space-xl);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .timelineContent {
+    margin-left: 0;
+    width: calc(50% - 40px);
+  }
+}
+
+.timelineYear {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-secondary);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: var(--space-sm);
+}
+
+.timelineTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-xs);
+}
+
+@media (prefers-color-scheme: dark) {
+  .timelineTitle {
+    color: var(--color-primary-light);
+  }
+}
+
+.timelineDesc {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
