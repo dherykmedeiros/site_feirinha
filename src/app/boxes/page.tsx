@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Search, MapPin, Instagram } from "lucide-react";
+import { Search, MapPin } from "lucide-react";
+import Instagram from "@/components/Icons/Instagram";
 import styles from "./page.module.css";
 import { mockBoxes } from "@/lib/supabase";
 

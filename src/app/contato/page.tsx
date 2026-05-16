@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, Phone, Mail, Instagram, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Send } from "lucide-react";
+import Instagram from "@/components/Icons/Instagram";
 import styles from "./page.module.css";
 // import { supabase } from "@/lib/supabase"; // será usado quando o BD estiver pronto
 
